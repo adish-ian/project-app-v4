@@ -29,7 +29,9 @@
     <p style="color: red">
       <%= post.errors.full_messages_for(:keywords).join(" ,") %></p>
     <% end %>
-    </div> <br><hr/>
+    </div> <br>
+    
+      <%= form.file_field :images, multiple:true %><br><hr/>
 
     <div>
       <%= form.submit class: "btn btn-primary col-12" %>
