@@ -14,6 +14,9 @@
     <%= post.keywords %>
   </p>
   <p>
+    <h6>Posted by </h6><%= post.user.email %>
+  </p>
+  <p>
       <%= link_to "", post, class:"post-link" %>
   </p>
   <% post.images.each do |image| %>
