@@ -16,10 +16,24 @@
                    <%= link_to "About", home_about_path, class: 'nav-link' %>
         </li>
       </ul>
-      <form class="d-flex">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
+
+      <ul class="navbar-nav">
+        <% if user_signed_in? %>
+          <li class="nav-item">
+                   <%= link_to "Edit Profile", edit_user_registration_path, class: 'nav-link' %>
+          </li>
+          <li class="nav-item">
+                   <%= link_to "Sign out", destroy_user_session_path, data: {turbo_method: :delete}, class: 'nav-link' %>
+          </li>
+        <% else %>
+          <li class="nav-item">
+                   <%= link_to "Login", edit_user_registration_path, class: 'nav-link' %>
+          </li>
+        <li class="nav-item">
+                   <%= link_to "Sign up", new_user_registration_path, class: 'nav-link' %>
+          </li>
+        <% end %>
+      </ul>
     </div>
   </div>
 </nav>
