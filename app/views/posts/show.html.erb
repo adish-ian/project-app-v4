@@ -6,9 +6,14 @@
   <% if current_user.id == @post.user.id%>
     <div>
       <%= link_to "Edit this post", edit_post_path(@post) %> |
-
-
       <%= button_to "Destroy this post", @post, method: :delete %>
-    </div>
+    </div> <br>
   <% end %>
 <% end %>
+
+<div class="container">
+  <%= render 'comments/form', post: @post %>
+  <% @comments.each do |comment| %>
+    <%= render 'comments/comment', post: @post, comment: comment %>
+  <% end %>
+</div>
