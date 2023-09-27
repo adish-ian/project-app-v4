@@ -7,6 +7,7 @@
     </a>
     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
       <% @unread.each do |notification| %>
+      <p class="text-center">Unread</p>
         <%= render 'layouts/notification', notification: notification %>
       <% end %>
       <% if @read.count > 0 && @unread.count > 0 %>
@@ -18,7 +19,9 @@
           No notifications yet.
         </li>
       <% end %>
+      
       <% @read.each do |notification| %>
+        <p class="text-center">Read</p>
         <%= render 'layouts/notification', notification: notification %>
       <% end %>
     </ul>
