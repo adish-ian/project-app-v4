@@ -1,6 +1,10 @@
 <p style="color: green"><%= notice %></p>
 <div class="row">
   <div class="col-12 text-center" style="padding: 20px; background-color: #f2f2f2;">
+  <% if @user.avatar.attached? %>
+    <%= image_tag @user.avatar, class: "rounded-circle justify-content-center align-items-center", style: "width:200px;height:200px;object-fit:cover"%>
+  <% end %>
+    
     <h1><%= @user.name %></h1>
     <p><%= @user.email %></p>
     <p><%= @user.bio %></p>

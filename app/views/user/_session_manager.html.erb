@@ -1,4 +1,7 @@
-<% if current_user %>
+<% if user_signed_in? %>
+<% if current_user.avatar.attached? %>
+  <%= image_tag current_user.avatar, class: "rounded-circle border d-flex justify-content-center align-items-center", style: "width:40px;height:40px;object-fit:cover"%>
+<% end %>
   <li class="nav-item dropdown">
     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
       <%= current_user.name %>
