@@ -1,3 +1,4 @@
+<p style="color: green"><%= notice %></p>
 <div class="row">
   <div class="col-12 text-center" style="padding: 20px; background-color: #f2f2f2;">
     <h1><%= @user.name %></h1>
@@ -7,11 +8,10 @@
 </div>
 
 <%= stylesheet_link_tag("post") %>
-<p style="color: green"><%= notice %></p>
 <div id="posts" class="text-center">
   <% @user.posts.each do |post| %>
   
-    <% if post.user.id == current_user.id %>
+    <% if post.user.id %>
             <%= render post %>
     <% end %>
   <% end %>

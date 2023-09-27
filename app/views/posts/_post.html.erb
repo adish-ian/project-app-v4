@@ -17,7 +17,9 @@
     <strong>Keywords:</strong>
     <%= post.keywords %>
   </p>
-  <p>
-    <h6>Posted by </h6><%= post.user.name %>
-  </p>
 </div>
+<div class="container text-center">
+  <p>
+    <h6>Posted by </h6><%= link_to post.user.email, post.user %>
+  </p>
+</div><br>
