@@ -51,8 +51,9 @@ class PostsController < ApplicationController
 
   # DELETE /posts/1 or /posts/1.json
   def destroy
-    @post.destroy
     @post.likes.destroy_all
+    @post.destroy
+    
 
 
     respond_to do |format|
