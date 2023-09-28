@@ -9,7 +9,6 @@ class PostsController < ApplicationController
   # GET /posts/1 or /posts/1.json
   def show
     @comments = @post.comments.order(created_at: :desc)
-    
     mark_notifications_as_read
   end
 

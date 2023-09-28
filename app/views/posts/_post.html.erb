@@ -19,6 +19,17 @@
   </p>
 </div>
 <div class="container text-center">
+  <p><%= pluralize(post.likes.count, "like") %></p>
+  
+  <% if user_signed_in? %>
+  <% like = current_user.likes.find_by(post: post) %>
+  <% if like.nil? %>
+    <%= button_to "Like", likes_path, params: {like: { post_id: post.id }}, method: :post %>
+  <% else %>
+    <%= button_to "Unlike", like_path(like),  method: :delete %>
+  <% end %>
+  <% end %>
+  
   <p>
     <h6>Posted by </h6><%= link_to post.user.email, post.user %>
   </p>
