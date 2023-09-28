@@ -46,8 +46,17 @@
 <% end %>
 
   <%= link_to "New post", new_post_path, class: "btn btn-primary"%>
-  <% @posts.each do |post| %>
-    <%= render post %>
+   <% @posts.each do |post| %>
+    <% if user_signed_in? %>
+      <% if current_user.following?(post.user) %>
+        <%= render post %>
+      <% end %>
+    <% end %>
+  <% end %>
+  <% if !user_signed_in? %>
+    <% @posts.each do |post| %>
+      <%= render post%>
+    <% end %>
   <% end %>
 </div>
 
