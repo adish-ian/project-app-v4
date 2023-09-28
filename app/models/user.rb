@@ -18,6 +18,10 @@ class User < ApplicationRecord
     %w[bio created_at email id name remember_created_at updated_at]
   end
 
-  
+  enum role: [:user, :admin]
+          after_initialize :set_default_role, :if => :new_record?
+          def set_default_role
+          self.role ||= :user
+          end
 
 end

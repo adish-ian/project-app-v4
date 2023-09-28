@@ -32,6 +32,9 @@ gem 'image_processing', '~> 1.2'
 gem 'noticed', '~> 1.6', '>= 1.6.3'
 gem 'ransack'
 gem 'followability'
+gem 'rails_admin', '~> 3.0'
+gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
+
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]
 end
@@ -45,3 +48,4 @@ group :test do
   gem "selenium-webdriver"
   gem "webdrivers"
 end
+gem "cssbundling-rails"
