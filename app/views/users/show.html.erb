@@ -8,6 +8,18 @@
     <h1><%= @user.name %></h1>
     <p><%= @user.email %></p>
     <p><%= @user.bio %></p>
+  
+<% if current_user.following?(@user) %>
+      <%= button_to "Unfollow", unfollow_path(@user)%>
+    <% elsif current_user.sent_follow_request_to?(@user) %>
+      <%= button_to "Cancel follow request", cancel_path(@user) %>
+    <% else %>
+      <% if @user.id == current_user.id %>
+      <% else %>
+        <%= button_to "Follow", follow_path(@user)%>
+      <% end %>
+      <% end %>
+
   </div>
 </div>
 
