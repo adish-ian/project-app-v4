@@ -6,23 +6,31 @@
       </span>
     </a>
     <ul class="dropdown-menu dropdown-menu-lg-end" aria-labelledby="navbarDropdown">
-      <p class="text-center">Unread</p>
-      <% @unread.each do |notification| %>
-        <%= render 'layouts/notification', notification: notification %>
-      <% end %>
-      <% if @read.count > 0 && @unread.count > 0 %>
+      <% if @unread.any? %>
         <li>
-          <hr class="dropdown-divider">
+          <p class="text-center">Unread</p>
         </li>
-      <% elsif @read.count + @unread.count == 0 %>
+        <% @unread.each do |notification| %>
+          <%= render 'layouts/notification', notification: notification %>
+        <% end %>
+      <% end %>
+      <% if @read.any? %>
+        <% if @unread.any? %>
+          <li>
+            <hr class="dropdown-divider">
+          </li>
+        <% end %>
+        <li>
+          <p class="text-center">Read</p>
+        </li>
+        <% @read.each do |notification| %>
+          <%= render 'layouts/notification', notification: notification %>
+        <% end %>
+      <% end %>
+      <% if @read.empty? && @unread.empty? %>
         <li class="dropdown-item">
           No notifications yet.
         </li>
-      <% end %>
-
-      <p class="text-center">Read</p>
-      <% @read.each do |notification| %>
-        <%= render 'layouts/notification', notification: notification %>
       <% end %>
     </ul>
   </li>

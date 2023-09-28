@@ -30,6 +30,7 @@ gem "bootsnap", require: false
 gem 'devise', '~> 4.9', '>= 4.9.2'
 gem 'image_processing', '~> 1.2'
 gem 'noticed', '~> 1.6', '>= 1.6.3'
+gem 'ransack'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

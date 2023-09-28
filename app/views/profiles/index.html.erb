@@ -1,0 +1,9 @@
+<div class="text-center">
+  <% if @users.blank? %>
+    <p>No user found</p>
+  <% else %>
+    <% @users.each do |user| %>
+      <%= render user %>
+    <% end %>
+  <% end %>
+</div>

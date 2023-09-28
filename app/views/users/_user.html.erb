@@ -1,0 +1,8 @@
+<div class="user mt-5">
+  <%= link_to user_path(user) do %>
+    <%= image_tag user.avatar, class: "rounded-circle justify-content-center align-items-center", style: "width:200px;height:200px;object-fit:cover" if user.avatar.present? %>
+    <p>Name: <%= user.name %></p>
+    <p>Email: <%= user.email %></p>
+    <!-- Add other user attributes you want to display -->
+  <% end %>
+</div>

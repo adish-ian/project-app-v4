@@ -9,4 +9,9 @@ class User < ApplicationRecord
   has_many :notifications, as: :recipient, dependent: :destroy
   has_one_attached :avatar
   has_many :likes
+
+  def self.ransackable_attributes(auth_object = nil)
+    %w[bio created_at email id name remember_created_at updated_at]
+  end
+
 end
