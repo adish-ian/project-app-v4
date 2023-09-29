@@ -34,6 +34,7 @@ gem 'ransack'
 gem 'followability'
 gem 'rails_admin', '~> 3.0'
 gem 'sassc-rails', '~> 2.1', '>= 2.1.2'
+gem 'pagy'
 
 group :development, :test do
   gem "debug", platforms: %i[ mri mingw x64_mingw ]

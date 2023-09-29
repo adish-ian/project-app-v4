@@ -46,17 +46,16 @@
 <% end %>
 
   <%= link_to "New post", new_post_path, class: "btn btn-primary"%>
+  <%= raw pagy_bootstrap_nav(@pagy) %>
    <% @posts.each do |post| %>
-    <% if user_signed_in? %>
-      <% if current_user.following?(post.user) %>
-        <%= render post %>
-      <% end %>
+  <% if user_signed_in? %>
+    <% if current_user.following?(post.user) || post.user == current_user %>
+      <%= render post %>
     <% end %>
+  <% else %>
+    <%= render post %>
   <% end %>
-  <% if !user_signed_in? %>
-    <% @posts.each do |post| %>
-      <%= render post%>
-    <% end %>
-  <% end %>
+<% end %>
+
 </div>
 

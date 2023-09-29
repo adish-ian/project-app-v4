@@ -1,9 +1,11 @@
 class PostsController < ApplicationController
   before_action :set_post, only: %i[ show edit update destroy ]
   before_action :authenticate_user!
+  include Pagy::Backend
   # GET /posts or /posts.json
   def index
-    @posts = Post.all.order(created_at: :desc)
+    @posts = Post.order(:created_at => :desc)
+    @pagy, @posts = pagy(@posts, items: 1)
   end
 
   # GET /posts/1 or /posts/1.json
